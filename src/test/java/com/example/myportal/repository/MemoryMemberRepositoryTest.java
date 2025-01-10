@@ -1,6 +1,6 @@
-package com.example.myspringboot.repository;
+package com.example.myportal.repository;
 
-import com.example.myspringboot.domain.Member;
+import com.example.myportal.domain.Member;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 

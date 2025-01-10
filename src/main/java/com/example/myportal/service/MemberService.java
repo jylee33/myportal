@@ -1,7 +1,7 @@
-package com.example.myspringboot.service;
+package com.example.myportal.service;
 
-import com.example.myspringboot.domain.Member;
-import com.example.myspringboot.repository.MemberRepository;
+import com.example.myportal.domain.Member;
+import com.example.myportal.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,16 +24,16 @@ public class MemberService {
         회원 가입
          */
     public Long join(Member member) {
-        validateDuplicateMember(member);    // 중복회원 검증(이름)
+        validateDuplicateMember(member);    // 중복회원 검증
         memberRepository.save(member);
         return member.getId();
     }
 
     private void validateDuplicateMember(Member member) {
         memberRepository.findByName(member.getName())
-                .ifPresent(m -> {
-                    throw new IllegalStateException("이미 존재하는 회원입니다.");
-                });
+            .ifPresent(m -> {
+                throw new IllegalStateException("이미 존재하는 회원입니다.");
+            });
     }
 
     /*

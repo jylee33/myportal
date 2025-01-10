@@ -1,11 +1,9 @@
-package com.example.myspringboot.config;
+package com.example.myportal.config;
 
-import com.example.myspringboot.aop.TimeTraceAop;
-import com.example.myspringboot.repository.JdbcTemplateMemberRepository;
-import com.example.myspringboot.repository.JpaMemberRepository;
-import com.example.myspringboot.repository.MemberRepository;
-import com.example.myspringboot.repository.MemoryMemberRepository;
-import com.example.myspringboot.service.MemberService;
+import com.example.myportal.repository.JdbcTemplateMemberRepository;
+import com.example.myportal.repository.JpaMemberRepository;
+import com.example.myportal.repository.MemberRepository;
+import com.example.myportal.service.MemberService;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -40,5 +38,4 @@ public class SpringConfig {
         return new JdbcTemplateMemberRepository(dataSource);
 //        return new JpaMemberRepository(em);
     }
-
 }

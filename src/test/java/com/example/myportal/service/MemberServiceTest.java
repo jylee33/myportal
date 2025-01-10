@@ -1,7 +1,7 @@
-package com.example.myspringboot.service;
+package com.example.myportal.service;
 
-import com.example.myspringboot.domain.Member;
-import com.example.myspringboot.repository.MemoryMemberRepository;
+import com.example.myportal.domain.Member;
+import com.example.myportal.repository.MemoryMemberRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

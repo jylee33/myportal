@@ -1,6 +1,6 @@
-package com.example.myspringboot.repository;
+package com.example.myportal.repository;
 
-import com.example.myspringboot.domain.Member;
+import com.example.myportal.domain.Member;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
@@ -39,4 +39,3 @@ public class MemoryMemberRepository implements MemberRepository{
         store.clear();
     }
 }
-

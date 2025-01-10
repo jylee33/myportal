@@ -1,6 +1,6 @@
-package com.example.myspringboot.repository;
+package com.example.myportal.repository;
 
-import com.example.myspringboot.domain.Member;
+import com.example.myportal.domain.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;

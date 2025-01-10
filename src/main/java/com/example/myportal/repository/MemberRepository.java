@@ -1,6 +1,6 @@
-package com.example.myspringboot.repository;
+package com.example.myportal.repository;
 
-import com.example.myspringboot.domain.Member;
+import com.example.myportal.domain.Member;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -16,5 +16,3 @@ public interface MemberRepository {
     Optional<Member> findByName(String name);
     List<Member> findAll();
 }
-
-

@@ -1,11 +1,31 @@
 spring:
-  datasource:
-    url: jdbc:h2:tcp://localhost/~/test
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
-
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: none
+
+#  H2 DB 사용
+#  datasource:
+#    url: jdbc:h2:tcp://localhost/~/test
+#    driver-class-name: org.h2.Driver
+#    username: sa
+#    password:
+
+#  mariadb 사용
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/ncloud?&serverTimezone=Asia/Seoul&autoReconnect=true&allowMultiQueries=true&characterEncoding=UTF-8
+    username: root
+    password: root.123
+#    mapper-locations: classpath:mapper/**/*Mapper.xml
+
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+#  thymeleaf:
+#    prefix: classpath:/templates/
+#    suffix: .html
+#    cache: false
+##    view-names: thymeleaf/*

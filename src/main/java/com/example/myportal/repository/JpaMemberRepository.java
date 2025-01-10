@@ -1,6 +1,6 @@
-package com.example.myspringboot.repository;
+package com.example.myportal.repository;
 
-import com.example.myspringboot.domain.Member;
+import com.example.myportal.domain.Member;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -32,7 +32,7 @@ public class JpaMemberRepository implements MemberRepository {
 
     @Override
     public Optional<Member> findByName(String name) {
-        List<Member> result = em.createQuery("select m from Member m where m.name = :name", Member.class)
+        List<Member> result = em.createQuery("select m from Member m where m.name =: name", Member.class)
                 .setParameter("name", name)
                 .getResultList();
 

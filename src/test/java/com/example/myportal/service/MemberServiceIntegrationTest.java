@@ -1,7 +1,7 @@
-package com.example.myspringboot.service;
+package com.example.myportal.service;
 
-import com.example.myspringboot.domain.Member;
-import com.example.myspringboot.repository.MemberRepository;
+import com.example.myportal.domain.Member;
+import com.example.myportal.repository.MemberRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.boot.test.context.SpringBootTest;
 
