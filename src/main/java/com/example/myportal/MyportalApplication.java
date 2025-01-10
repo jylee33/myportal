@@ -1,4 +1,4 @@
-package com.example.myspringboot;
+package com.example.myportal;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

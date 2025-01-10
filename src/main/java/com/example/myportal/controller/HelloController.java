@@ -1,4 +1,4 @@
-package com.example.myspringboot.controller;
+package com.hamonsoft.cportal.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,30 +7,30 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class HelloContoller {
+public class HelloController {
+
 
     @GetMapping("hello")
     public String hello(Model model) {
-        model.addAttribute("data", "hello!!");
-        return "hello";
+        model.addAttribute("name", "Jay!");
+        return "thymeleaf/hello";
     }
 
-    //http://localhost:8080/hello-mvc?name=Jay
+    //http://localhost:8080/portal/hello-mvc?name=Jay
     @GetMapping("hello-mvc")
-//    public String helloMvc(@RequestParam(value = "name", required = false) String name, Model model) { // 이렇게 required = false 를 넣어주면 파라미터를 넣지 않아도 에러 나지 않는다.
-    public String helloMvc(@RequestParam("name") String name, Model model) {
+    public String hello(@RequestParam("name") String name, Model model) {
         model.addAttribute("name", name);
-        return "hello-template";
+        return "thymeleaf/hello-template";
     }
 
-    //http://localhost:8080/hello-string?name=Jay
+    //http://localhost:8080/portal/hello-string?name=Jay
     @GetMapping("hello-string")
     @ResponseBody
     public String helloString(@RequestParam("name") String name) {
         return "hello " + name;
     }
 
-    //http://localhost:8080/hello-api?name=Jay
+    //http://localhost:8080/portal/hello-api?name=Jay
     @GetMapping("hello-api")
     @ResponseBody
     public Hello helloApi(@RequestParam("name") String name) {

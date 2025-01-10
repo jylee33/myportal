@@ -17,17 +17,17 @@ import javax.sql.DataSource;
 public class SpringConfig {
 
     private DataSource dataSource;
-    private EntityManager em;
-
-//    @Autowired
-//    public SpringConfig(DataSource dataSource) {
-//        this.dataSource = dataSource;
-//    }
+//    private EntityManager em;
 
     @Autowired
-    public SpringConfig(EntityManager em) {
-        this.em = em;
+    public SpringConfig(DataSource dataSource) {
+        this.dataSource = dataSource;
     }
+
+//    @Autowired
+//    public SpringConfig(EntityManager em) {
+//        this.em = em;
+//    }
 
     @Bean
     public MemberService memberService() {
@@ -37,8 +37,8 @@ public class SpringConfig {
     @Bean
     public MemberRepository memberRepository() {
 //        return new MemoryMemberRepository();
-//        return new JdbcTemplateMemberRepository(dataSource);
-        return new JpaMemberRepository(em);
+        return new JdbcTemplateMemberRepository(dataSource);
+//        return new JpaMemberRepository(em);
     }
 
 }
