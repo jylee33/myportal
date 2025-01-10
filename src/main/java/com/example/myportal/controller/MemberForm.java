@@ -1,4 +1,4 @@
-package com.example.myspringboot.controller;
+package com.example.myportal.controller;
 
 public class MemberForm {
 
