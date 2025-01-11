@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
@@ -8,6 +8,7 @@
 
 <div class="container">
   <h1>Hello Spring</h1>
+  <p th:text="'serverTime - ' + ${serverTime}">serverTime</p>
   <p>회원 기능</p>
   <p>
     <a href="/members/new">회원 가입</a>

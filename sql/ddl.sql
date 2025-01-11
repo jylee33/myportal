@@ -12,3 +12,13 @@ create table member
     name varchar(255),
     primary key(id)
 );
+
+CREATE TABLE board(
+                      bno INT NOT NULL AUTO_INCREMENT,
+                      title VARCHAR(200) NOT NULL,
+                      content TEXT NULL,
+                      writer VARCHAR(50) NOT NULL,
+                      regdate TIMESTAMP NOT NULL DEFAULT NOW(),
+                      viewcnt INT DEFAULT 0,
+                      PRIMARY KEY(bno));
+

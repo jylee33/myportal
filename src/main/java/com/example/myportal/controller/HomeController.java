@@ -1,5 +1,6 @@
 package com.example.myportal.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -10,14 +11,13 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+@Slf4j
 @Controller
-public class HomeController {
-
-    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+public class    HomeController {
 
     @GetMapping("/index")
     public String index(Model model) {
-        logger.info("index --------------------------------------");
+        log.info("index --------------------------------------");
 
         model.addAttribute("data", "Hello, Spring from IntelliJ! :)");
         model.addAttribute("name", "Jay");
@@ -26,6 +26,15 @@ public class HomeController {
 
     @GetMapping(value = "/")
     public String home(Locale locale, Model model) {
+        log.info("Welcome home! The client locale is {}.", locale);
+
+        Date date = new Date();
+        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+
+        String formattedDate = dateFormat.format(date);
+        log.info("date - " + formattedDate);
+
+        model.addAttribute("serverTime", formattedDate );
 
         return "home";
     }
