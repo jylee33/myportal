@@ -43,6 +43,10 @@ public class BoardService {
     public void remove(Integer bno) {
         repository.delete(bno);
     }
+
+    public List<Board> listPage(Integer page) {
+        return repository.listPage(page);
+    }
 //
 //    public List<BoardVO> listCriteria(Criteria cri) {
 //        return dao.listCriteria(cri);

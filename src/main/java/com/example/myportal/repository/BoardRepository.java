@@ -33,7 +33,7 @@ public class BoardRepository {
 
     public List<Board> findAll() {
 
-        return em.createQuery("select b from Board b", Board.class)
+        return em.createQuery("select b from Board b order by bno desc", Board.class)
                 .getResultList();
 
     }
@@ -49,17 +49,20 @@ public class BoardRepository {
         em.remove(em.find(Board.class, bno));
     }
 
-//    public List<Board> listPage(int page) {
-//
-//        if(page <= 0) {
-//            page = 1;
-//        }
-//
-//        page = (page - 1) * 10;
-//
-//        return session.selectList(namespace + ".listPage", page);
-//    }
-//
+    public List<Board> listPage(int page) {
+
+        if(page <= 0) {
+            page = 1;
+        }
+
+        page = (page - 1) * 10;
+
+        return em.createQuery("select b from Board b order by bno desc", Board.class)
+                .setFirstResult(page)
+                .setMaxResults(10)
+                .getResultList();
+    }
+
 //    public List<Board> listCriteria(Criteria cri) {
 //        return session.selectList(namespace + ".listCriteria", cri);
 //    }

@@ -79,4 +79,13 @@ public class BoardController {
         return "redirect:/board/listAll";
     }
 
+    @GetMapping(value = "/listPage")
+    public String listPage(@RequestParam("page") int page, Model model) throws Exception {
+        log.info("show list page ..... " + page);
+        List<Board> boardList = boardService.listPage(page);
+        model.addAttribute("boardList", boardList);
+
+        return "board/listAll";
+    }
+
 }
