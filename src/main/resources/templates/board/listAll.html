@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
-<head th:replace="layout/header :: head ('블로그')"></head>
+<head th:replace="layout/header :: head('게시판')"></head>
 
 <body class="d-flex flex-column h-100">
 <header th:replace="layout/header :: header"></header>
@@ -42,10 +42,10 @@
                         <tbody>
                             <tr th:each="board : ${boardList}">
                                 <td th:text="${board.bno}"></td>
-                                <td th:text="${board.title}"></td>
+                                <td><a th:href="@{'/board/read?bno='+${board.bno}}" th:text="${board.title}"></a></td>
                                 <td th:text="${board.writer}"></td>
                                 <td th:text="${board.regdate}"></td>
-                                <td th:text="${board.viewcnt}"></td>
+                                <td><span class="badge bg-red" th:text="${board.viewcnt}"></span></td>
                             </tr>
                         </tbody>
                     </table>

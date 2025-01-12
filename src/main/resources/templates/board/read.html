@@ -1,34 +1,66 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form role="form" method="post">
-    <input type='hidden' name='bno' th:value="${board.bno}">
-</form>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head th:replace="layout/header :: head('게시판 읽기')"></head>
 
-<div class="box-body">
-    <div class="form-group">
-        <label>Title</label>
-        <input type="text" name='title' class="form-control" th:value="${board.title}" readonly="readonly">
-    </div>
-    <div class="form-group">
-        <label>Content</label>
-        <textarea class="form-control" name="content" rows="3" th:text="${board.content}" readonly="readonly"></textarea>
-    </div>
-    <div class="form-group">
-        <label>Writer</label>
-        <input type="text" name='writer' class="form-control" th:value="${board.writer}" readonly="readonly">
-    </div>
-</div>
+<body class="d-flex flex-column h-100">
+<header th:replace="layout/header :: header"></header>
 
-<div class="box-footer">
-    <button type="submit" class="btn btn-warning">Modify</button>
-    <button type="submit" class="btn btn-danger">REMOVE</button>
-    <button type="submit" class="btn btn-primary">LIST ALL</button>
-</div>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Board</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Board</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <form role="form" method="post">
+                        <input type='hidden' name='bno' th:value="${board.bno}">
+                    </form>
+
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" name='title' class="form-control" th:value="${board.title}" readonly="readonly">
+                        </div>
+                        <div class="form-group">
+                            <label>Content</label>
+                            <textarea class="form-control" name="content" rows="3" th:text="${board.content}" readonly="readonly"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Writer</label>
+                            <input type="text" name='writer' class="form-control" th:value="${board.writer}" readonly="readonly">
+                        </div>
+                    </div>
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-warning">Modify</button>
+                        <button type="submit" class="btn btn-danger">REMOVE</button>
+                        <button type="submit" class="btn btn-primary">LIST ALL</button>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section><!-- /.content -->
+</div><!-- /.content-wrapper -->
+
+</body>
+<footer th:replace="layout/footer :: footer"></footer>
 
 <script>
     $(document).ready(function() {
@@ -54,5 +86,9 @@
 
     });
 </script>
-</body>
+
 </html>
+
+
+
+

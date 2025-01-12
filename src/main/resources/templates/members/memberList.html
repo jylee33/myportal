@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
-<head th:replace="layout/header :: head ('블로그')"></head>
+<head th:replace="layout/header :: head('member')"></head>
 
 <body class="d-flex flex-column h-100">
 <header th:replace="layout/header :: header"></header>
@@ -12,7 +12,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Board</h1>
+          <h1>Member</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -51,4 +51,13 @@
 
 </body>
 <footer th:replace="layout/footer :: footer"></footer>
+
+<script>
+  var result = '${msg}';
+
+  if(result == 'success') {
+    alert("처리가 완료되었습니다.");
+  }
+</script
+
 </html>
