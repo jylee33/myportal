@@ -41,12 +41,11 @@ public class BoardRepository {
 //    public void update(Board board) {
 //        session.update(namespace + ".update", board);
 //    }
-//
-//    @Override
-//    public void delete(Integer bno) {
-//        session.delete(namespace + ".delete", bno);
-//    }
-//
+
+    public void delete(Integer bno) {
+        em.remove(em.find(Board.class, bno));
+    }
+
 //    public List<Board> listPage(int page) {
 //
 //        if(page <= 0) {

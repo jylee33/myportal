@@ -1,20 +1,49 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<body>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head th:replace="layout/header :: head ('MY Portal')"></head>
 
-<div class="container">
-  <h1>Hello Spring</h1>
-  <p th:text="'serverTime - ' + ${serverTime}">serverTime</p>
-  <p>회원 기능</p>
-  <p>
-    <a href="/members/new">회원 가입</a>
-    <a href="/members">회원 목록</a>
-  </p>
-</div>
+<body>
+<header th:replace="layout/header :: header"></header>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Home</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <p th:text="'serverTime - ' + ${serverTime}">serverTime</p>
+                    <p>회원 기능</p>
+                    <p>
+                        <a href="/members/new">회원 가입</a>
+                        <a href="/members">회원 목록</a>
+                    </p>
+                    <p>게시판 기능</p>
+                    <p>
+                        <a href="/board/listAll">게시판</a>
+                    </p>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section><!-- /.content -->
+</div><!-- /.content-wrapper -->
 
 </body>
+<footer th:replace="layout/footer :: footer"></footer>
 </html>

@@ -39,10 +39,10 @@ public class BoardService {
 //    public void modify(BoardVO board) {
 //        dao.update(board);
 //    }
-//
-//    public void remove(Integer bno) {
-//        dao.delete(bno);
-//    }
+
+    public void remove(Integer bno) {
+        repository.delete(bno);
+    }
 //
 //    public List<BoardVO> listAll() {
 //        return dao.listAll();

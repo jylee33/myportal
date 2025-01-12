@@ -1,6 +1,7 @@
 package com.example.myportal.controller;
 
 import com.example.myportal.domain.Board;
+import com.example.myportal.domain.Member;
 import com.example.myportal.service.BoardService;
 import com.example.myportal.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.List;
 
 @Slf4j
 @Controller
@@ -44,11 +47,21 @@ public class BoardController {
     @GetMapping(value = "/listAll")
     public void listAll(Model model) throws Exception {
         log.info("show all list.....");
-        model.addAttribute("list", boardService.findBoards());
+        List<Board> boardList = boardService.findBoards();
+        model.addAttribute("boardList", boardList);
     }
 
     @GetMapping(value = "/read")
     public void read(@RequestParam("bno") int bno, Model model) throws Exception {
-        model.addAttribute("board", boardService.read(bno));
+        model.addAttribute("board", boardService.read(bno).get());
     }
+
+    @PostMapping("/remove")
+    public String remove(@RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception {
+        log.info("remove board.....");
+        boardService.remove(bno);
+        rttr.addFlashAttribute("msg", "success");
+        return "redirect:/board/listAll";
+    }
+
 }

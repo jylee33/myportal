@@ -6,21 +6,21 @@
 </head>
 <body>
 <form role="form" method="post">
-    <input type='hidden' name='bno' th:value="${board.get().bno}">
+    <input type='hidden' name='bno' th:value="${board.bno}">
 </form>
 
 <div class="box-body">
     <div class="form-group">
         <label>Title</label>
-        <input type="text" name='title' class="form-control" th:value="${board.get().title}" readonly="readonly">
+        <input type="text" name='title' class="form-control" th:value="${board.title}" readonly="readonly">
     </div>
     <div class="form-group">
         <label>Content</label>
-        <textarea class="form-control" name="content" rows="3" th:text="${board.get().content}" readonly="readonly"></textarea>
+        <textarea class="form-control" name="content" rows="3" th:text="${board.content}" readonly="readonly"></textarea>
     </div>
     <div class="form-group">
         <label>Writer</label>
-        <input type="text" name='writer' class="form-control" th:value="${board.get().writer}" readonly="readonly">
+        <input type="text" name='writer' class="form-control" th:value="${board.writer}" readonly="readonly">
     </div>
 </div>
 

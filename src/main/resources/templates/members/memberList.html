@@ -1,30 +1,54 @@
 <!DOCTYPE html>
-<html xml:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-<div class="container">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head th:replace="layout/header :: head ('블로그')"></head>
 
-  <div>
-    <table>
-      <thead>
-      <tr>
-        <th>#</th>
-        <th>이름</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr th:each="member : ${members}">
-        <td th:text="${member.id}"></td>
-        <td th:text="${member.name}"></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+<body class="d-flex flex-column h-100">
+<header th:replace="layout/header :: header"></header>
 
-</div>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Board</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active">Member</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>이름</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="member : ${members}">
+              <td th:text="${member.id}"></td>
+              <td th:text="${member.name}"></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section><!-- /.content -->
+</div><!-- /.content-wrapper -->
 
 </body>
+<footer th:replace="layout/footer :: footer"></footer>
 </html>
