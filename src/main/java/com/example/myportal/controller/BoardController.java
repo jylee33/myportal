@@ -64,4 +64,19 @@ public class BoardController {
         return "redirect:/board/listAll";
     }
 
+    @GetMapping(value = "/modify")
+    public void modifyGET(int bno, Model model) throws Exception {
+        model.addAttribute("board", boardService.read(bno).get());
+    }
+
+    @PostMapping("/modify")
+    public String modifyPOST(Board board, RedirectAttributes rttr) throws Exception {
+        log.info("mod post.....");
+
+        boardService.modify(board);
+        rttr.addFlashAttribute("msg", "success");
+
+        return "redirect:/board/listAll";
+    }
+
 }

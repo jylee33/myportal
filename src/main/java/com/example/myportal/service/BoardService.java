@@ -36,17 +36,13 @@ public class BoardService {
         return repository.findByBno(bno);
     }
 
-//    public void modify(BoardVO board) {
-//        dao.update(board);
-//    }
+    public void modify(Board board) {
+        repository.update(board);
+    }
 
     public void remove(Integer bno) {
         repository.delete(bno);
     }
-//
-//    public List<BoardVO> listAll() {
-//        return dao.listAll();
-//    }
 //
 //    public List<BoardVO> listCriteria(Criteria cri) {
 //        return dao.listCriteria(cri);

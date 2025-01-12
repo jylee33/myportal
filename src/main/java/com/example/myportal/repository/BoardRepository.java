@@ -38,9 +38,12 @@ public class BoardRepository {
 
     }
 
-//    public void update(Board board) {
-//        session.update(namespace + ".update", board);
-//    }
+    public void update(Board board) {
+        Board findBoard = em.find(Board.class, board.getBno());
+        findBoard.setTitle(board.getTitle());
+        findBoard.setContent(board.getContent());
+        findBoard.setWriter(board.getWriter());
+    }
 
     public void delete(Integer bno) {
         em.remove(em.find(Board.class, bno));
