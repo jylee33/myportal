@@ -53,7 +53,7 @@ public class BoardController {
 
     @GetMapping(value = "/read")
     public void read(@RequestParam("bno") int bno, Model model) throws Exception {
-        model.addAttribute("board", boardService.read(bno).get());
+        model.addAttribute("board", boardService.read(bno, true).get());
     }
 
     @PostMapping("/remove")
@@ -66,7 +66,7 @@ public class BoardController {
 
     @GetMapping(value = "/modify")
     public void modifyGET(int bno, Model model) throws Exception {
-        model.addAttribute("board", boardService.read(bno).get());
+        model.addAttribute("board", boardService.read(bno, false).get());
     }
 
     @PostMapping("/modify")
@@ -85,7 +85,7 @@ public class BoardController {
         List<Board> boardList = boardService.listPage(page);
         model.addAttribute("boardList", boardList);
 
-        return "board/listAll";
+        return "board/list";
     }
 
 }

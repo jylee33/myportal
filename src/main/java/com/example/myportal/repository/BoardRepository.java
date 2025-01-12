@@ -1,13 +1,16 @@
 package com.example.myportal.repository;
 
 import com.example.myportal.domain.Board;
+import com.example.myportal.domain.Criteria;
 import jakarta.persistence.EntityManager;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Repository
 public class BoardRepository {
 
@@ -23,7 +26,13 @@ public class BoardRepository {
         return board;
     }
 
-    public Optional<Board> findByBno(Integer bno) {
+    public Optional<Board> findByBno(Integer bno, boolean bReadMode) {
+        log.info("findByBno, bno={}", bno);
+        if (bReadMode) {
+            Board findBoard = em.find(Board.class, bno);
+            findBoard.setViewcnt(findBoard.getViewcnt() + 1);
+        }
+
         List<Board> result = em.createQuery("select b from Board b where b.bno =: bno", Board.class)
                 .setParameter("bno", bno)
                 .getResultList();
@@ -66,7 +75,7 @@ public class BoardRepository {
 //    public List<Board> listCriteria(Criteria cri) {
 //        return session.selectList(namespace + ".listCriteria", cri);
 //    }
-//
+
 //    public int countPaging(Criteria cri) {
 //        return session.selectOne(namespace + ".countPaging", cri);
 //    }

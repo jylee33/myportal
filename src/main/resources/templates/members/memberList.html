@@ -52,8 +52,8 @@
 </body>
 <footer th:replace="~{layout/footer :: footer}"></footer>
 
-<script>
-  var result = '${msg}';
+<script th:inline="javascript">
+  var result = [[${msg}]];
 
   if(result == 'success') {
     alert("처리가 완료되었습니다.");

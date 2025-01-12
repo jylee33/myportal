@@ -32,8 +32,8 @@ public class BoardService {
         return repository.findAll();
     }
 
-    public Optional<Board> read(Integer bno) {
-        return repository.findByBno(bno);
+    public Optional<Board> read(Integer bno, boolean bReadMode) {
+        return repository.findByBno(bno, bReadMode);
     }
 
     public void modify(Board board) {
