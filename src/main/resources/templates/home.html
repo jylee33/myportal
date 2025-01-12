@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
-<head th:replace="layout/header :: head ('MY Portal')"></head>
+<head th:replace="~{layout/header :: head ('MY Portal')}"></head>
 
 <body>
-<header th:replace="layout/header :: header"></header>
+<header th:replace="~{layout/header :: header}"></header>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -45,5 +45,5 @@
 </div><!-- /.content-wrapper -->
 
 </body>
-<footer th:replace="layout/footer :: footer"></footer>
+<footer th:replace="~{layout/footer :: footer}"></footer>
 </html>

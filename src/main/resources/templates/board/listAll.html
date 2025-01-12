@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
-<head th:replace="layout/header :: head('게시판')"></head>
+<head th:replace="~{layout/header :: head('게시판')}"></head>
 
 <body class="d-flex flex-column h-100">
-<header th:replace="layout/header :: header"></header>
+<header th:replace="~{layout/header :: header}"></header>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -29,6 +29,35 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                    <div class="box-body">
+<!--                        <select name="searchType">-->
+<!--                            <option value="n"-->
+<!--                            <c:out value="${cri.searchType == null ? 'selected' : ''}"/>>-->
+<!--                            -&#45;&#45;</option>-->
+<!--                            <option value="t"-->
+<!--                            <c:out value="${cri.searchType eq 't' ? 'selected' : ''}"/>>-->
+<!--                            Title</option>-->
+<!--                            <option value="c"-->
+<!--                            <c:out value="${cri.searchType eq 'c' ? 'selected' : ''}"/>>-->
+<!--                            Content</option>-->
+<!--                            <option value="w"-->
+<!--                            <c:out value="${cri.searchType eq 'w' ? 'selected' : ''}"/>>-->
+<!--                            Writer</option>-->
+<!--                            <option value="tc"-->
+<!--                            <c:out value="${cri.searchType eq 'tc' ? 'selected' : ''}"/>>-->
+<!--                            Title OR Content</option>-->
+<!--                            <option value="cw"-->
+<!--                            <c:out value="${cri.searchType eq 'cw' ? 'selected' : ''}"/>>-->
+<!--                            Content OR Writer</option>-->
+<!--                            <option value="tcw"-->
+<!--                            <c:out value="${cri.searchType eq 'tcw' ? 'selected' : ''}"/>>-->
+<!--                            Title OR Content OR Writer</option>-->
+<!--                        </select>-->
+<!--                        <input type="text" name='keyword' id="keywordInput" value='${cri.keyword }'>-->
+<!--                        <button id='searchBtn'>검색</button>-->
+                        <button id='newBtn'>글쓰기</button>
+                    </div>
+
                     <table class="table table-bordered">
                         <thead>
                         <tr>
@@ -56,7 +85,7 @@
 </div><!-- /.content-wrapper -->
 
 </body>
-<footer th:replace="layout/footer :: footer"></footer>
+<footer th:replace="~{layout/footer :: footer}"></footer>
 
 <script>
     $(document).ready(function() {
@@ -65,6 +94,19 @@
         if(result == 'success') {
             alert("처리가 완료되었습니다.");
         }
+
+        $('#searchBtn').on("click", function(){
+            self.location = "list"
+                + '${pageMaker.makeQuery(1)}'
+                + "&searchType="
+                + $("select option:selected").val()
+                + "&keyword="
+                + $('#keywordInput').val();
+        });
+
+        $('#newBtn').on("click", function(){
+            self.location = "register";
+        });
     });
 </script>
 
