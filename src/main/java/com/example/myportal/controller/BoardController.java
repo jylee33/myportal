@@ -1,6 +1,7 @@
 package com.example.myportal.controller;
 
 import com.example.myportal.domain.Board;
+import com.example.myportal.domain.Criteria;
 import com.example.myportal.domain.Member;
 import com.example.myportal.service.BoardService;
 import com.example.myportal.service.MemberService;
@@ -85,7 +86,16 @@ public class BoardController {
         List<Board> boardList = boardService.listPage(page);
         model.addAttribute("boardList", boardList);
 
-        return "board/list";
+        return "board/listPage";
+    }
+
+    @GetMapping(value = "/listCri")
+    public String listCriteria(Criteria cri, Model model) throws Exception {
+        log.info("show criteria page ..... " + cri.toString());
+        List<Board> boardList = boardService.listCriteria(cri);
+        model.addAttribute("boardList", boardList);
+
+        return "board/listCri";
     }
 
 }

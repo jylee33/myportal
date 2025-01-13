@@ -72,9 +72,13 @@ public class BoardRepository {
                 .getResultList();
     }
 
-//    public List<Board> listCriteria(Criteria cri) {
-//        return session.selectList(namespace + ".listCriteria", cri);
-//    }
+    public List<Board> listCriteria(Criteria cri) {
+        return em.createQuery("select b from Board b order by bno desc", Board.class)
+                .setFirstResult(cri.getPageStart())
+                .setMaxResults(cri.getPerPageNum())
+                .getResultList();
+
+    }
 
 //    public int countPaging(Criteria cri) {
 //        return session.selectOne(namespace + ".countPaging", cri);

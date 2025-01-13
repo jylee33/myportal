@@ -1,6 +1,7 @@
 package com.example.myportal.service;
 
 import com.example.myportal.domain.Board;
+import com.example.myportal.domain.Criteria;
 import com.example.myportal.domain.Member;
 import com.example.myportal.repository.BoardRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -47,11 +48,11 @@ public class BoardService {
     public List<Board> listPage(Integer page) {
         return repository.listPage(page);
     }
-//
-//    public List<BoardVO> listCriteria(Criteria cri) {
-//        return dao.listCriteria(cri);
-//    }
-//
+
+    public List<Board> listCriteria(Criteria cri) {
+        return repository.listCriteria(cri);
+    }
+
 //    public int listCountCriteria(Criteria cri) {
 //        return dao.countPaging(cri);
 //    }
