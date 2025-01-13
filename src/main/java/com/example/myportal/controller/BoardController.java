@@ -3,6 +3,7 @@ package com.example.myportal.controller;
 import com.example.myportal.domain.Board;
 import com.example.myportal.domain.Criteria;
 import com.example.myportal.domain.Member;
+import com.example.myportal.domain.PageMaker;
 import com.example.myportal.service.BoardService;
 import com.example.myportal.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
@@ -95,7 +96,14 @@ public class BoardController {
         List<Board> boardList = boardService.listCriteria(cri);
         model.addAttribute("boardList", boardList);
 
-        return "board/listCri";
+        PageMaker pageMaker = new PageMaker();
+        pageMaker.setCri(cri);
+        pageMaker.setTotalCount(131);
+
+        model.addAttribute("pageMaker", pageMaker);
+
+//        return "board/listCri";
+        return "board/list";
     }
 
 }

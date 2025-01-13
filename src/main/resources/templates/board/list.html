@@ -79,27 +79,29 @@
                         </tbody>
                     </table>
 
-<!--                    <div class="text-center">-->
-<!--                        <ul class="pagination">-->
+                    <div class="text-center">
+                        <ul class="pagination">
 
-<!--                            <c:if test="${pageMaker.prev }">-->
-<!--                                <li><a href="list${pageMaker.makeSearch(pageMaker.startPage - 1)}">&laquo;</a></li>-->
-<!--                            </c:if>-->
+                            <th:block th:if="${pageMaker.prev == true}">
+                                <li><a th:href="@{'/board/listCri?page=' + ${pageMaker.startPage - 1}}"><span aria-hidden="true">&laquo;</span></a></li>
+                            </th:block>
 
-<!--                            <c:forEach begin="${pageMaker.startPage }"-->
-<!--                                       end="${pageMaker.endPage }" var="idx">-->
-<!--                                <li-->
-<!--                                <c:out value="${pageMaker.cri.page == idx?'class = active':''}"/>>-->
-<!--                                <a href="list${pageMaker.makeSearch(idx)}">${idx}</a>-->
-<!--                                </li>-->
-<!--                            </c:forEach>-->
+                            <th:block th:each="idx : ${#numbers.sequence(pageMaker.startPage,pageMaker.endPage)}">
+                                <li th:if="${pageMaker.cri.page == idx}" class='active'>
+                                    <a th:href="@{'/board/listCri?page=' + ${idx}}" th:text="${idx}"></a>
+                                </li>
+                                <li th:unless="${pageMaker.cri.page == idx}">
+                                    <a th:href="@{'/board/listCri?page=' + ${idx}}" th:text="${idx}"></a>
+                                </li>
+                            </th:block>
 
-<!--                            <c:if test="${pageMaker.next && pageMaker.endPage > 0 }">-->
-<!--                                <li><a href="list${pageMaker.makeSearch(pageMaker.endPage + 1)}">&raquo;</a></li>-->
-<!--                            </c:if>-->
+                            <th:block th:if="${pageMaker.next == true and pageMaker.endPage > 0}">
+                                <li><a th:href="@{'/board/listCri?page=' + ${pageMaker.endPage + 1}}"><span aria-hidden="true">&raquo;</span></a></li>
+<!--                                <li><a th:href="@{'/board/listCri' + ${pageMaker.makeSearch(pageMaker.endPage + 1)}}"><span aria-hidden="true">&raquo;</span></a></li>-->
+                            </th:block>
 
-<!--                        </ul>-->
-<!--                    </div>-->
+                        </ul>
+                    </div>
 
                 </div>
             </div>
