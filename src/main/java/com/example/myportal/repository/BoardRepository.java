@@ -24,9 +24,9 @@ public class BoardRepository {
         this.em = em;
     }
 
-    public Board create(Board board) {
+    public int create(Board board) {
         em.persist(board);
-        return board;
+        return board.getBno();
     }
 
     public Optional<Board> findByBno(Integer bno, boolean bReadMode) {
