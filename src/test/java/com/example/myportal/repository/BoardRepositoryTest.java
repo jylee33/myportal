@@ -31,6 +31,8 @@ class BoardRepositoryTest {
 
         assertThat(findBoard.get().getBno()).isEqualTo(board.getBno());
         assertThat(findBoard.get().getRegdate()).isEqualTo(board.getRegdate());
+        assertThat(findBoard.get()).isEqualTo(board);
+        System.out.println("findBoard == board : " + (findBoard.get() == board));
     }
 
     @Test
