@@ -53,10 +53,10 @@ public class BoardService {
         return repository.listCriteria(cri);
     }
 
-//    public int listCountCriteria(Criteria cri) {
-//        return dao.countPaging(cri);
-//    }
-//
+    public int listCountCriteria(Criteria cri) {
+        return repository.countPaging(cri);
+    }
+
 //    public List<BoardVO> listSearchCriteria(SearchCriteria cri) {
 //        return dao.listSearch(cri);
 //    }

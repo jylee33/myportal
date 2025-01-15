@@ -2,7 +2,9 @@ package com.example.myportal.repository;
 
 import com.example.myportal.domain.Board;
 import com.example.myportal.domain.Criteria;
+import com.example.myportal.domain.Member;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,6 +16,7 @@ import java.util.Optional;
 @Repository
 public class BoardRepository {
 
+    @PersistenceContext
     private final EntityManager em;
 
     @Autowired
@@ -80,10 +83,11 @@ public class BoardRepository {
 
     }
 
-//    public int countPaging(Criteria cri) {
-//        return session.selectOne(namespace + ".countPaging", cri);
-//    }
-//
+    public int countPaging(Criteria cri) {
+        return em.createQuery("select b from Board b", Board.class)
+                .getResultList().size();
+    }
+
 //    public List<Board> listSearch(SearchCriteria cri) {
 //        return session.selectList(namespace + ".listSearch", cri);
 //    }
