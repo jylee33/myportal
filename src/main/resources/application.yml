@@ -33,3 +33,7 @@ spring:
     suffix: .html
     cache: false
 #    view-names: thymeleaf/*
+logging:
+  level:
+    org.hibernate.sql: debug
+    org.hibernate.type: trace
